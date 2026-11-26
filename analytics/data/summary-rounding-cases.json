@@ -1,0 +1,26 @@
+{
+  "schema_version": "0.1-draft",
+  "purpose": "Точные границы округления для PostgreSQL NUMERIC; значения внесены по ручному расчёту",
+  "cases": [
+    {
+      "id": "R01",
+      "description": "Среднее и чётная медиана 1.005 округляются до 1.01 у физлиц",
+      "client_type": "individual",
+      "rows": [
+        {"id":5001,"loan_amount":"1.00","income":"0.00","loan_term":12},
+        {"id":5002,"loan_amount":"1.01","income":"0.01","loan_term":12}
+      ],
+      "expected": {"count":2,"amount_mean":1.01,"amount_median":1.01,"term_mean":12,"income_mean":0.01,"income_median":0.01,"amount_income_ratio_mean":101,"ratio_excluded":1}
+    },
+    {
+      "id": "R02",
+      "description": "Среднее и чётная медиана 1.005 округляются до 1.01 у компаний",
+      "client_type": "company",
+      "rows": [
+        {"id":5001,"loan_amount":"1.00","company_revenue":"0.00","loan_term":12},
+        {"id":5002,"loan_amount":"1.01","company_revenue":"0.01","loan_term":12}
+      ],
+      "expected": {"count":2,"amount_mean":1.01,"amount_median":1.01,"term_mean":12,"revenue_mean":0.01,"revenue_median":0.01}
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+﻿id;client_type;product_type;region;profession;workplace;income;company_industry;company_size;company_revenue;loan_amount;loan_term;purpose;created_at
+9001;individual;consumer;Краснодарский край;1;"СИНТЕТИКА: тест; участок ""А""";10000;;;;100000;12;home_repair;2026-01-01
+;individual;consumer;Краснодарский край;1;СИНТЕТИКА: место работы 1001;10000;;;;100000;12;home_repair;2026-01-01
+9003;person;consumer;Краснодарский край;1;СИНТЕТИКА: место работы 1001;10000;;;;100000;12;home_repair;2026-01-01
+9004;individual;consumer;;1;СИНТЕТИКА: место работы 1001;10000;;;;100000;12;home_repair;2026-01-01
+9005;individual;consumer;Несуществующий регион;1;СИНТЕТИКА: место работы 1001;10000;;;;100000;12;home_repair;2026-01-01
+9006;individual;consumer;Краснодарский край;999;СИНТЕТИКА: место работы 1001;10000;;;;100000;12;home_repair;2026-01-01
+9007;individual;consumer;Краснодарский край;1;;10000;;;;100000;12;home_repair;2026-01-01
+9008;individual;consumer;Краснодарский край;1;СИНТЕТИКА: место работы 1001;;;;;100000;12;home_repair;2026-01-01
+9009;individual;consumer;Краснодарский край;1;СИНТЕТИКА: место работы 1001;-1;;;;100000;12;home_repair;2026-01-01
+9010;individual;consumer;Краснодарский край;1;СИНТЕТИКА: место работы 1001;10000;;;;0;12;home_repair;2026-01-01
+9011;individual;consumer;Краснодарский край;1;СИНТЕТИКА: место работы 1001;10000;;;;сто;12;home_repair;2026-01-01
+9012;individual;consumer;Краснодарский край;1;СИНТЕТИКА: место работы 1001;10000;;;;100000;0;home_repair;2026-01-01
+9013;individual;consumer;Краснодарский край;1;СИНТЕТИКА: место работы 1001;10000;;;;100000;12.5;home_repair;2026-01-01
+9014;individual;consumer;Краснодарский край;1;СИНТЕТИКА: место работы 1001;10000;;;;100000;12;home_repair;2026-02-30
+9015;individual;investment;Краснодарский край;1;СИНТЕТИКА: место работы 1001;10000;;;;100000;12;home_repair;2026-01-01
+9016;individual;consumer;Краснодарский край;1;СИНТЕТИКА: место работы 1001;10000;;;;100000;12;sowing;2026-01-01
+9017;individual;consumer;Краснодарский край;1;СИНТЕТИКА: место работы 1001;10000;1;;;100000;12;home_repair;2026-01-01
+9018;company;investment;Краснодарский край;;;;999;small;10000000;1000000;12;equipment_purchase;2026-01-05
+9019;company;investment;Краснодарский край;;;;1;unknown;10000000;1000000;12;equipment_purchase;2026-01-05
+9020;company;investment;Краснодарский край;;;;1;small;-100;1000000;12;equipment_purchase;2026-01-05
+9021;company;investment;Краснодарский край;;;0;1;small;10000000;1000000;12;equipment_purchase;2026-01-05
+9001;individual;consumer;Краснодарский край;1;"СИНТЕТИКА: тест; участок ""А""";10000;;;;100000;12;home_repair;2026-01-01

@@ -1,0 +1,53 @@
+{
+  "schema_version": "0.1-draft",
+  "source": "Ручные расчёты в docs/control-results.md; эталон не генерируется из аналитики сервера",
+  "default_period": {"date_from":"2026-01-01","date_to":"2026-03-31"},
+  "cases": [
+    {"id":"C01","description":"Все аграрные физлица","filters":{"client_type":"individual"},"expected":{"selected_ids":[1001,1002,1003,1004,1005,1006],"count":6,"all_individual_count":8,"agricultural_share_pct":75,"amount_mean":350000,"amount_median":350000,"term_mean":24,"income_mean":30000,"income_median":30000,"amount_income_ratio_mean":10,"ratio_excluded":1}},
+    {"id":"C02","description":"Все сельхозпредприятия","filters":{"client_type":"company"},"expected":{"selected_ids":[1009,1010,1011,1012,1013,1014],"count":6,"amount_mean":3500000,"amount_median":3500000,"term_mean":24,"revenue_mean":30000000,"revenue_median":30000000}},
+    {"id":"C03","description":"Нечётная медиана: физлица за январь","filters":{"client_type":"individual","date_to":"2026-01-31"},"expected":{"selected_ids":[1001,1002,1003],"count":3,"all_individual_count":4,"agricultural_share_pct":75,"amount_mean":200000,"amount_median":200000,"income_mean":10000,"income_median":10000,"amount_income_ratio_mean":10,"ratio_excluded":1}},
+    {"id":"C04","description":"Профессия не сужает знаменатель","filters":{"client_type":"individual","profession":1},"expected":{"selected_ids":[1001,1004],"count":2,"all_individual_count":8,"agricultural_share_pct":25,"amount_mean":250000,"amount_median":250000,"income_mean":25000,"income_median":25000,"term_mean":12}},
+    {"id":"C05","description":"Профессия и регион","filters":{"client_type":"individual","profession":1,"region":"Краснодарский край"},"expected":{"count":2,"all_individual_count":4,"agricultural_share_pct":50,"amount_mean":250000}},
+    {"id":"C06","description":"Одна заявка с нулевым доходом","filters":{"client_type":"individual","profession":3},"expected":{"selected_ids":[1003],"count":1,"all_individual_count":8,"agricultural_share_pct":12.5,"amount_mean":300000,"amount_median":300000,"income_mean":0,"income_median":0,"amount_income_ratio_mean":null,"ratio_excluded":1}},
+    {"id":"C07","description":"Регион и округление","filters":{"client_type":"individual","region":"Краснодарский край"},"expected":{"selected_ids":[1001,1002,1004],"count":3,"all_individual_count":4,"agricultural_share_pct":75,"amount_mean":233333.33,"amount_median":200000,"income_mean":23333.33,"income_median":20000,"term_mean":16}},
+    {"id":"C08","description":"Неаграрная профессия: пустой числитель","filters":{"client_type":"individual","profession":5},"expected":{"count":0,"all_individual_count":8,"agricultural_share_pct":0,"amount_mean":null,"amount_median":null,"income_mean":null,"amount_income_ratio_mean":null,"ratio_excluded":0}},
+    {"id":"C09","description":"Пустой период","filters":{"client_type":"individual","date_from":"2026-04-01","date_to":"2026-04-30"},"expected":{"count":0,"all_individual_count":0,"agricultural_share_pct":null,"amount_mean":null,"amount_median":null,"income_mean":null,"term_mean":null}},
+    {"id":"C10","description":"Компания с нулевой выручкой","filters":{"client_type":"company","company_industry":3,"date_from":"2026-02-01","date_to":"2026-02-28"},"expected":{"selected_ids":[1011],"count":1,"amount_mean":3000000,"amount_median":3000000,"revenue_mean":0,"revenue_median":0,"term_mean":36}},
+    {"id":"C11","description":"Компании одного региона","filters":{"client_type":"company","region":"Краснодарский край"},"expected":{"selected_ids":[1009,1011,1013],"count":3,"amount_mean":3000000,"amount_median":3000000,"revenue_mean":20000000,"revenue_median":10000000,"term_mean":24}},
+    {"id":"C12","description":"Обе границы периода включены","filters":{"client_type":"individual","date_from":"2026-01-31","date_to":"2026-02-01"},"expected":{"selected_ids":[1003,1004],"count":2,"all_individual_count":2,"agricultural_share_pct":100,"amount_mean":350000,"income_mean":20000,"amount_income_ratio_mean":10,"ratio_excluded":1}},
+    {"id":"C13","description":"Регион без заявок","filters":{"client_type":"individual","region":"Алтайский край"},"expected":{"count":0,"all_individual_count":0,"agricultural_share_pct":null,"amount_mean":null}},
+    {"id":"C14","description":"Пустая группа компаний","filters":{"client_type":"company","date_from":"2026-04-01","date_to":"2026-04-30"},"expected":{"count":0,"amount_mean":null,"amount_median":null,"revenue_mean":null,"revenue_median":null,"term_mean":null}}
+  ],
+  "distributions": {
+    "individual": {
+      "region":{"Краснодарский край":3,"Республика Татарстан":3},
+      "profession":{"1":2,"2":1,"3":1,"4":1,"9":1},
+      "purpose":{"home_repair":2,"car_purchase":2,"education":2},
+      "product_type":{"consumer":4,"auto":2},
+      "leading_purposes":["car_purchase","education","home_repair"]
+    },
+    "company": {
+      "region":{"Краснодарский край":3,"Республика Татарстан":3},
+      "company_industry":{"1":2,"2":2,"3":2},
+      "purpose":{"equipment_purchase":2,"working_capital":2,"sowing":2},
+      "product_type":{"investment":2,"working_capital":4},
+      "leading_purposes":["equipment_purchase","sowing","working_capital"]
+    }
+  },
+  "monthly": {
+    "individual":[
+      {"month":"2026-01","count":3,"amount_mean":200000,"income_mean":10000,"count_change_pct":null,"amount_change_pct":null,"income_change_pct":null},
+      {"month":"2026-02","count":3,"amount_mean":500000,"income_mean":50000,"count_change_pct":0,"amount_change_pct":150,"income_change_pct":400},
+      {"month":"2026-03","count":0,"amount_mean":null,"income_mean":null,"count_change_pct":-100,"amount_change_pct":null,"income_change_pct":null}
+    ],
+    "company":[
+      {"month":"2026-01","count":2,"amount_mean":1500000,"revenue_mean":15000000,"count_change_pct":null,"amount_change_pct":null,"revenue_change_pct":null},
+      {"month":"2026-02","count":2,"amount_mean":3500000,"revenue_mean":20000000,"count_change_pct":0,"amount_change_pct":133.3,"revenue_change_pct":33.3},
+      {"month":"2026-03","count":2,"amount_mean":5500000,"revenue_mean":55000000,"count_change_pct":0,"amount_change_pct":57.1,"revenue_change_pct":175}
+    ]
+  },
+  "zero_base_cases":[
+    {"description":"Профессия 4: январь 0 заявок, февраль 1","previous":0,"current":1,"expected_change_pct":null},
+    {"description":"Сфера 3: средняя выручка в феврале 0, в марте 60000000","previous":0,"current":60000000,"expected_change_pct":null}
+  ]
+}

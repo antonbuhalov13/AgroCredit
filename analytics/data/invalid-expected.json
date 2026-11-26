@@ -1,0 +1,164 @@
+{
+  "schema_version": "0.1-draft",
+  "file": "invalid_applications.csv",
+  "precondition": "Пустая таблица applications, справочники загружены",
+  "total": 22,
+  "accepted": 1,
+  "rejected": 21,
+  "rows": [
+    {
+      "line": 2,
+      "id": 9001,
+      "status": "accepted",
+      "code": null,
+      "reason": "Контрольная корректная строка с кавычками и разделителем в тексте"
+    },
+    {
+      "line": 3,
+      "id": "",
+      "status": "rejected",
+      "code": "invalid_id",
+      "reason": "Отсутствует идентификатор"
+    },
+    {
+      "line": 4,
+      "id": 9003,
+      "status": "rejected",
+      "code": "invalid_client_type",
+      "reason": "Неизвестный тип заявителя"
+    },
+    {
+      "line": 5,
+      "id": 9004,
+      "status": "rejected",
+      "code": "invalid_region",
+      "reason": "Пустой регион"
+    },
+    {
+      "line": 6,
+      "id": 9005,
+      "status": "rejected",
+      "code": "invalid_region",
+      "reason": "Регион отсутствует в списке"
+    },
+    {
+      "line": 7,
+      "id": 9006,
+      "status": "rejected",
+      "code": "invalid_profession",
+      "reason": "Неизвестная профессия"
+    },
+    {
+      "line": 8,
+      "id": 9007,
+      "status": "rejected",
+      "code": "invalid_workplace",
+      "reason": "Не заполнено место работы"
+    },
+    {
+      "line": 9,
+      "id": 9008,
+      "status": "rejected",
+      "code": "invalid_income",
+      "reason": "Пропущен доход"
+    },
+    {
+      "line": 10,
+      "id": 9009,
+      "status": "rejected",
+      "code": "invalid_income",
+      "reason": "Отрицательный доход"
+    },
+    {
+      "line": 11,
+      "id": 9010,
+      "status": "rejected",
+      "code": "invalid_loan_amount",
+      "reason": "Нулевая сумма кредита"
+    },
+    {
+      "line": 12,
+      "id": 9011,
+      "status": "rejected",
+      "code": "invalid_loan_amount",
+      "reason": "Текст вместо суммы"
+    },
+    {
+      "line": 13,
+      "id": 9012,
+      "status": "rejected",
+      "code": "invalid_loan_term",
+      "reason": "Нулевой срок"
+    },
+    {
+      "line": 14,
+      "id": 9013,
+      "status": "rejected",
+      "code": "invalid_loan_term",
+      "reason": "Дробное число месяцев"
+    },
+    {
+      "line": 15,
+      "id": 9014,
+      "status": "rejected",
+      "code": "invalid_created_at",
+      "reason": "Несуществующая дата"
+    },
+    {
+      "line": 16,
+      "id": 9015,
+      "status": "rejected",
+      "code": "invalid_product_type",
+      "reason": "Продукт компании у физлица"
+    },
+    {
+      "line": 17,
+      "id": 9016,
+      "status": "rejected",
+      "code": "invalid_purpose",
+      "reason": "Цель компании у физлица"
+    },
+    {
+      "line": 18,
+      "id": 9017,
+      "status": "rejected",
+      "code": "unexpected_company_industry",
+      "reason": "Поле компании у физлица"
+    },
+    {
+      "line": 19,
+      "id": 9018,
+      "status": "rejected",
+      "code": "invalid_company_industry",
+      "reason": "Неизвестная сфера"
+    },
+    {
+      "line": 20,
+      "id": 9019,
+      "status": "rejected",
+      "code": "invalid_company_size",
+      "reason": "Неизвестный размер компании"
+    },
+    {
+      "line": 21,
+      "id": 9020,
+      "status": "rejected",
+      "code": "invalid_company_revenue",
+      "reason": "Отрицательная выручка"
+    },
+    {
+      "line": 22,
+      "id": 9021,
+      "status": "rejected",
+      "code": "unexpected_income",
+      "reason": "Поле физлица у компании"
+    },
+    {
+      "line": 23,
+      "id": 9001,
+      "status": "rejected",
+      "code": "duplicate_id",
+      "reason": "Повтор ID принятой строки 2"
+    }
+  ]
+}
