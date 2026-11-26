@@ -1,0 +1,149 @@
+{
+  "schema_version": "0.1-draft",
+  "status": "Предложение Богдана; требуется согласование с Егором и Антоном",
+  "synthetic_only": true,
+  "other_profession_id": 17,
+  "other_company_industry_id": 7,
+  "columns": [
+    "id",
+    "client_type",
+    "product_type",
+    "region",
+    "profession",
+    "workplace",
+    "income",
+    "company_industry",
+    "company_size",
+    "company_revenue",
+    "loan_amount",
+    "loan_term",
+    "purpose",
+    "created_at"
+  ],
+  "client_types": {
+    "individual": "Физическое лицо",
+    "company": "Предприятие"
+  },
+  "regions": [
+    "Краснодарский край",
+    "Республика Татарстан",
+    "Ростовская область",
+    "Алтайский край"
+  ],
+  "products": {
+    "individual": {
+      "consumer": "Потребительский кредит",
+      "auto": "Автокредит",
+      "mortgage": "Ипотечный кредит",
+      "education": "Образовательный кредит",
+      "refinancing": "Рефинансирование кредитов",
+      "personal_farming": "Кредит на личное подсобное хозяйство"
+    },
+    "company": {
+      "investment": "Инвестиционный кредит",
+      "working_capital": "Кредит на оборотные средства",
+      "equipment": "Кредит на сельхозтехнику и оборудование",
+      "seasonal": "Кредит на сезонные работы",
+      "commercial_mortgage": "Кредит на коммерческую недвижимость",
+      "refinancing": "Рефинансирование бизнес-кредитов"
+    }
+  },
+  "purposes": {
+    "individual": {
+      "home_repair": "Ремонт жилья",
+      "car_purchase": "Покупка автомобиля",
+      "education": "Образование",
+      "home_purchase": "Покупка жилья",
+      "home_construction": "Строительство жилого дома",
+      "loan_refinancing": "Погашение действующих кредитов",
+      "livestock_purchase": "Покупка сельскохозяйственных животных",
+      "farm_supplies": "Покупка кормов, семян и инвентаря",
+      "other": "Другое"
+    },
+    "company": {
+      "equipment_purchase": "Покупка сельскохозяйственной техники",
+      "sowing": "Подготовка к посевной",
+      "working_capital": "Пополнение оборотных средств",
+      "equipment_modernization": "Модернизация оборудования",
+      "farm_construction": "Строительство сельскохозяйственных объектов",
+      "seed_fertilizer_purchase": "Покупка семян и удобрений",
+      "harvesting": "Проведение уборочных работ",
+      "feed_purchase": "Закупка кормов",
+      "business_property_purchase": "Покупка коммерческой недвижимости",
+      "loan_refinancing": "Погашение действующих кредитов",
+      "other": "Другое"
+    }
+  },
+  "product_purposes": {
+    "individual": {
+      "consumer": [
+        "home_repair",
+        "car_purchase",
+        "education",
+        "other"
+      ],
+      "auto": [
+        "car_purchase",
+        "other"
+      ],
+      "mortgage": [
+        "home_purchase",
+        "home_construction",
+        "other"
+      ],
+      "education": [
+        "education",
+        "other"
+      ],
+      "refinancing": [
+        "loan_refinancing",
+        "other"
+      ],
+      "personal_farming": [
+        "livestock_purchase",
+        "farm_supplies",
+        "other"
+      ]
+    },
+    "company": {
+      "investment": [
+        "equipment_purchase",
+        "equipment_modernization",
+        "farm_construction",
+        "other"
+      ],
+      "working_capital": [
+        "sowing",
+        "working_capital",
+        "seed_fertilizer_purchase",
+        "feed_purchase",
+        "other"
+      ],
+      "equipment": [
+        "equipment_purchase",
+        "equipment_modernization",
+        "other"
+      ],
+      "seasonal": [
+        "sowing",
+        "seed_fertilizer_purchase",
+        "harvesting",
+        "other"
+      ],
+      "commercial_mortgage": [
+        "business_property_purchase",
+        "other"
+      ],
+      "refinancing": [
+        "loan_refinancing",
+        "other"
+      ]
+    }
+  },
+  "company_sizes": {
+    "micro": "Микро",
+    "small": "Малое",
+    "medium": "Среднее",
+    "large": "Крупное"
+  }
+}
