@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="ru">
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title>Данные · АгроКредит</title>
+   <link rel="icon" type="image/svg+xml" href="img/brand.svg">
+   <link rel="stylesheet" href="css/styles.css">
+   <script src="js/api.js" defer></script>
+   <script src="js/data.js" defer></script>
+</head>
+<body>
+   <header class="site-header">
+      <div class="site-header-inner">
+         <a class="brand" href="index.html"><img class="brand-mark" src="img/brand.svg" width="34" height="34" alt="">АгроКредит</a>
+         <nav aria-label="Разделы">
+            <a href="index.html">Обзор</a>
+            <a href="data.html" aria-current="page">Данные</a>
+         </nav>
+         <span class="demo">Деморежим</span>
+      </div>
+   </header>
+   <main>
+      <div class="intro">
+         <h1>Данные заявок</h1>
+         <p id="data-intro">Проверьте одну заявку или набор заявок из CSV. В деморежиме проверка проходит в браузере, а обзор показывает отдельную демонстрационную выборку.</p>
+      </div>
+      <div class="card mode-panel">
+         <div class="switch modes" role="group" aria-label="Способ ввода">
+            <button type="button" aria-pressed="true" aria-controls="manual">Ручной ввод</button>
+            <button type="button" aria-pressed="false" aria-controls="import">Импорт CSV</button>
+         </div>
+      </div>
+      <section id="manual" class="card data-card" aria-labelledby="manual-title">
+         <h2 id="manual-title">Добавить заявку</h2>
+         <form id="application">
+            <fieldset>
+               <legend>Тип заявителя</legend>
+               <label class="field">Категория
+                  <select name="client_type">
+                     <option value="individual">Физическое лицо</option>
+                     <option value="company">Предприятие</option>
+                  </select>
+               </label>
+            </fieldset>
+            <fieldset>
+               <legend>Параметры кредита</legend>
+               <div class="fields fields-three">
+                  <label class="field">Регион <select name="region" required></select></label>
+                  <label class="field">Кредитный продукт <select name="product_type" required></select></label>
+                  <label class="field">Цель кредита <select name="purpose" required></select></label>
+                  <label class="field fields-full-row" id="purpose-details-field" hidden>Своя цель кредита
+                     <input name="purpose_details" type="text" minlength="3" maxlength="200" aria-describedby="purpose-help" disabled>
+                     <span class="caption" id="purpose-help">Сначала выберите кредитный продукт.</span>
+                  </label>
+                  <div class="fields fields-two fields-full-row">
+                     <label class="field">Сумма, ₽ <input name="loan_amount" type="text" inputmode="decimal" placeholder="Например, 480000" required></label>
+                     <label class="field">Срок, месяцев <input name="loan_term" type="text" inputmode="numeric" placeholder="Например, 24" required></label>
+                  </div>
+               </div>
+            </fieldset>
+            <fieldset id="individual-fields">
+               <legend>Сведения о физлице</legend>
+               <div class="fields fields-three">
+                  <label class="field">Профессия
+                     <input name="profession_name" list="profession-options" placeholder="Например, агроном" autocomplete="off" minlength="2" maxlength="200" required>
+                  </label>
+                  <datalist id="profession-options"></datalist>
+                  <label class="field">Место работы <input name="workplace" required></label>
+                  <label class="field">Месячный доход, ₽ <input name="income" type="text" inputmode="decimal" required></label>
+                  <div class="fields fields-two fields-full-row category-extra" id="profession-extra" hidden>
+                     <label class="field">Связь с сельским хозяйством
+                        <select name="profession_classification" aria-describedby="profession-classification-help" disabled>
+                           <option value="">Выберите ответ</option>
+                           <option value="yes">Да</option>
+                           <option value="no">Нет</option>
+                           <option value="unsure">Не уверен</option>
+                        </select>
+                     </label>
+                     <p class="caption" id="profession-classification-help">При ответе «Да» заявка входит в аграрную статистику. Ответ действует только для этой заявки.</p>
+                  </div>
+               </div>
+            </fieldset>
+            <fieldset id="company-fields" hidden disabled>
+               <legend>Сведения о предприятии</legend>
+               <div class="fields fields-three">
+                  <label class="field">Сфера деятельности
+                     <input name="company_industry_name" list="company-industry-options" placeholder="Например, растениеводство" autocomplete="off" minlength="2" maxlength="200" required>
+                  </label>
+                  <datalist id="company-industry-options"></datalist>
+                  <label class="field">Размер <select name="company_size" required></select></label>
+                  <label class="field">Годовая выручка, ₽ <input name="company_revenue" type="text" inputmode="decimal" required></label>
+                  <div class="fields fields-two fields-full-row category-extra" id="company-industry-extra" hidden>
+                     <label class="field">Связь с сельским хозяйством
+                        <select name="company_industry_classification" aria-describedby="company-industry-classification-help" disabled>
+                           <option value="">Выберите ответ</option>
+                           <option value="yes">Да</option>
+                           <option value="no">Нет</option>
+                           <option value="unsure">Не уверен</option>
+                        </select>
+                     </label>
+                     <p class="caption" id="company-industry-classification-help">При ответе «Да» заявка входит в аграрную статистику. Ответ действует только для этой заявки.</p>
+                  </div>
+               </div>
+            </fieldset>
+            <div class="actions"><button class="primary" type="submit" id="application-submit">Проверить заявку</button></div>
+            <p id="application-result" class="feedback" role="status"></p>
+         </form>
+      </section>
+      <section id="import" class="card data-card" aria-labelledby="import-title" hidden>
+         <h2 id="import-title">Импорт CSV</h2>
+         <p class="caption" id="file-format">UTF-8, разделитель «;», до 5 МБ. Для цели other заполните purpose_details. Для варианта «Другое» в профессии (17) или сфере предприятия (7) укажите название и ответ yes, no или unsure по образцу в шаблоне. Для значений из справочника эти поля оставьте пустыми. Старые форматы CSV также поддерживаются.</p>
+         <form id="upload">
+            <label class="field file-field" for="csv-file">Выберите CSV-файл
+               <input id="csv-file" type="file" accept=".csv,text/csv" aria-describedby="file-format" required>
+            </label>
+            <div class="actions">
+               <button class="primary" type="submit" id="upload-submit">Проверить CSV</button>
+               <button class="secondary" id="download-template" type="button">Скачать шаблон</button>
+            </div>
+            <p id="upload-result" class="feedback" role="status"></p>
+         </form>
+         <div id="upload-errors" class="table-scroll" hidden>
+            <table>
+               <caption>Причины отклонения строк</caption>
+               <thead><tr><th scope="col">Строка</th><th scope="col">Причина</th></tr></thead>
+               <tbody></tbody>
+            </table>
+         </div>
+      </section>
+      <footer>АгроКредит · Учебный прототип</footer>
+   </main>
+</body>
+</html>

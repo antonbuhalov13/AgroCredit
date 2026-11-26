@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ru">
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title>Обзор · АгроКредит</title>
+   <link rel="icon" type="image/svg+xml" href="img/brand.svg">
+   <link rel="stylesheet" href="css/styles.css">
+   <script src="js/api.js" defer></script>
+   <script src="js/overview-demo.js" defer></script>
+   <script src="js/overview.js" defer></script>
+</head>
+<body>
+   <header class="site-header">
+      <div class="site-header-inner">
+         <a class="brand" href="index.html"><img class="brand-mark" src="img/brand.svg" width="34" height="34" alt="">АгроКредит</a>
+         <nav aria-label="Разделы">
+            <a href="index.html" aria-current="page">Обзор</a>
+            <a href="data.html">Данные</a>
+         </nav>
+         <span class="demo">Демоданные</span>
+      </div>
+   </header>
+   <main>
+      <div class="intro">
+         <h1>Обзор заявок</h1>
+         <p>Кредитные обращения в аграрном секторе</p>
+      </div>
+      <form id="filters" class="filters" aria-label="Параметры выборки">
+         <div class="card mode-panel selection">
+            <fieldset class="switch">
+               <legend class="sr-only">Тип заявителя</legend>
+               <label><input type="radio" name="client_type" value="individual" checked>Физлица</label>
+               <label><input type="radio" name="client_type" value="company">Предприятия</label>
+            </fieldset>
+            <p class="caption" id="source-caption">Демонабор · Январь — июнь 2026</p>
+         </div>
+         <div class="card">
+            <div class="fields filter-fields">
+               <label class="field">Начало периода <select name="from"></select></label>
+               <label class="field">Конец периода <select name="to"></select></label>
+               <label class="field">Регион <select name="region"></select></label>
+               <label class="field"><span id="category-label">Профессия</span> <select name="category"></select></label>
+            </div>
+            <div class="actions">
+               <button class="primary" type="submit">Применить</button>
+               <button class="secondary" type="button" id="reset-filters">Сбросить</button>
+            </div>
+            <p id="filter-error" class="feedback" data-error="true" role="alert"></p>
+         </div>
+      </form>
+      <p class="selection-summary" id="selection-summary"></p>
+      <p class="sr-only" id="announcement" role="status"></p>
+      <section id="metrics" class="metrics" aria-label="Ключевые показатели"></section>
+      <section class="card empty-state" id="empty-results" hidden>
+         <h2>По этим фильтрам заявок нет</h2>
+         <p class="caption">Выберите другой период, регион или категорию.</p>
+      </section>
+      <div class="charts" id="charts" hidden>
+         <section class="card" aria-labelledby="trend-title">
+            <h2 id="trend-title">Заявки по месяцам</h2>
+            <p class="caption">Количество заявок</p>
+            <figure id="trend"></figure>
+         </section>
+         <section class="card" aria-labelledby="region-title">
+            <h2 id="region-title">Заявки по регионам</h2>
+            <p class="caption">Количество и доля заявок в выборке</p>
+            <ol id="regions"></ol>
+         </section>
+      </div>
+      <section class="card detail-card" id="details-panel" aria-labelledby="details-title" hidden>
+         <div class="detail-heading">
+            <h2 id="details-title">Детали выборки</h2>
+            <div class="switch modes detail-modes" role="group" aria-label="Вид таблицы">
+               <button type="button" data-view="monthly" aria-pressed="true">По месяцам</button>
+               <button type="button" data-view="category" aria-pressed="false">Профессии</button>
+               <button type="button" data-view="purpose" aria-pressed="false">Цели</button>
+               <button type="button" data-view="product" aria-pressed="false">Продукты</button>
+            </div>
+         </div>
+         <div class="table-scroll" tabindex="0" role="region" aria-label="Таблица аналитики">
+            <table id="details"></table>
+         </div>
+      </section>
+      <footer>АгроКредит · Учебный прототип</footer>
+   </main>
+</body>
+</html>
