@@ -1,0 +1,18 @@
+{
+  "name": "agro-credit-analytics",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "node --env-file=.env server/index.js",
+    "db:reference": "node --env-file=.env server/scripts/load-reference.js",
+    "db:migrate": "node --env-file=.env server/scripts/migrate.js",
+    "load": "node --env-file=.env server/scripts/load-csv.js",
+    "test": "node --test \"server/**/*.test.js\"",
+    "test:purposes:postgres": "node --env-file=.env server/scripts/check-purposes-postgres.js"
+  },
+  "dependencies": {
+    "express": "^4.21.0",
+    "multer": "^1.4.5-lts.1",
+    "pg": "^8.13.0"
+  }
+}
